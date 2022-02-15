@@ -9,10 +9,10 @@ RegisterServerEvent('mt-weed:server:Apanhar', function()
         if Player.Functions.AddItem("og_kush_weed", math.random(1,2)) then   
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["og_kush_weed"], 'add')
         else
-            TriggerClientEvent('QBCore:Notify', src, 'Tens os bolsos cheios..', 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Pockets Full..', 'error')
         end		
 	else
-        TriggerClientEvent('QBCore:Notify', src, 'Destruis-te a planta..', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'You Broke the plant..', 'error')
     end
 end)
 
@@ -38,30 +38,30 @@ RegisterServerEvent('mt-weed:server:CortarWeed', function(args)
 						Player.Functions.RemoveItem("empty_weed_bag", returnAmount)
                         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['og_kush_weed'], "remove", removeAmount)
 						TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['empty_weed_bag'], "remove", returnAmount)
-                        TriggerClientEvent('pogressBar:drawBar', src, packageTime, 'A cortar weed..')
+                        TriggerClientEvent('pogressBar:drawBar', src, packageTime, 'Cutting weed..')
                         SetTimeout(packageTime, function()
                             if Player.Functions.AddItem('og_kush_bag', returnAmount, nil, info, {["quality"] = 100}) then
                                 TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["og_kush_bag"], "add", returnAmount)
-								TriggerClientEvent('QBCore:Notify', src, 'Cortas-te uma planta de weed!', 'success')
+								TriggerClientEvent('QBCore:Notify', src, 'You cut a weed plant!', 'success')
                                 TriggerClientEvent('mt-weed:client:MenuCorte', src)
                             else
-                                TriggerClientEvent('QBCore:Notify', src, 'Tens os bolsos cheios..', 'error')
+                                TriggerClientEvent('QBCore:Notify', src, 'You have the pockets full..', 'error')
                             end
                         end)
                     else
-                        TriggerClientEvent('QBCore:Notify', src, "Necessitas de pelo menos 28 sacos.", 'error')
+                        TriggerClientEvent('QBCore:Notify', src, "You need at least 28 empty bags.", 'error')
                         TriggerClientEvent('mt-weed:client:MenuCorte', src)
                     end
                 else
-                    TriggerClientEvent('QBCore:Notify', src, "Necessitas de pelo menos 28 sacos..", "error")
+                    TriggerClientEvent('QBCore:Notify', src, "You need at least 28 empty bags..", "error")
                     TriggerClientEvent('mt-weed:client:MenuCorte', src)
                 end
             else
-                TriggerClientEvent('QBCore:Notify', src, "Não tens plantas de weed..", 'error')
+                TriggerClientEvent('QBCore:Notify', src, "You dont have weed plants..", 'error')
                 TriggerClientEvent('mt-weed:client:MenuCorte', src)
             end
         else
-            TriggerClientEvent('QBCore:Notify', src, "Não tens plantas de weed..", "error")
+            TriggerClientEvent('QBCore:Notify', src, "You dont have weed plant..", "error")
             TriggerClientEvent('mt-weed:client:MenuCorte', src)
         end
     end
@@ -74,6 +74,6 @@ QBCore.Functions.CreateUseableItem("drug_cuttingkit", function(source, item)
     if scaleCheck ~= nil then
         TriggerClientEvent('mt-weed:client:MenuCorte', source)
     else
-        TriggerClientEvent('QBCore:Notify', source, "Não tens uma balança", 'error')
+        TriggerClientEvent('QBCore:Notify', source, "You dont have a scale", 'error')
     end
 end)
