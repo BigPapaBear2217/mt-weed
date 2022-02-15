@@ -11,7 +11,7 @@ Citizen.CreateThread(function()
 	SetBlipAsShortRange(blip, true)
 	SetBlipColour(blip, 3)
 	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentSubstringPlayerName("Campo de podução de weed") -- Mudar nome do Blip aqui!
+	AddTextComponentSubstringPlayerName("Weed Picking") -- Mudar nome do Blip aqui!
     EndTextCommandSetBlipName(blip)
 end)
 
@@ -29,7 +29,7 @@ RegisterNetEvent('mt-weed:client:Apanhar', function()
 		if HasItem then
 			if nearbyObject and IsPedOnFoot(playerPed) then
 				isPickingUp = true
-                QBCore.Functions.Progressbar("Apanhar", "A APANHAR PLANTA..", 5000)
+                QBCore.Functions.Progressbar("Apanhar", "HAVERSTING PLANT..", 5000)
 				TaskStartScenarioInPlace(playerPed, 'world_human_gardener_plant', 0, false)
 				Wait(6500)
 				ClearPedTasks(playerPed)
@@ -39,10 +39,10 @@ RegisterNetEvent('mt-weed:client:Apanhar', function()
 				spawnedPlants = spawnedPlants - 1
 				TriggerServerEvent('mt-weed:server:Apanhar')
 			else
-				QBCore.Functions.Notify('Estás bue longe, vem apra mais perto..', 'error', 3500)
+				QBCore.Functions.Notify('Too far way...', 'error', 3500)
 			end
 		else
-			QBCore.Functions.Notify('Não tens uma pá para apanhar a planta!', 'error', 3500)
+			QBCore.Functions.Notify('You need a towler!', 'error', 3500)
 		end
 	end, "trowel")
 end)
@@ -154,7 +154,7 @@ exports['qb-target']:AddTargetModel(`prop_weed_01`, {
         {
             event = "mt-weed:client:Apanhar",
             icon = "fas fa-seedling",
-            label = "Apanhar Planta",
+            label = "Havert Plant",
         },
     },
     distance = 2.0
@@ -169,12 +169,12 @@ RegisterNetEvent('mt-weed:client:MenuCorte', function()
     TaskStartScenarioInPlace(PlayerPedId(), "PROP_HUMAN_PARKING_METER", 3500, false)
     exports['qb-menu']:openMenu({
         {
-            header = "Cortar weed",
+            header = "Cut Weed",
             txt = "Weed necessária:</p>10x Sacos de weed vazios</p>1x Planta de weed.",
             isMenuHeader = true
         },
         {
-            header = "Cortar Planta de Weed",
+            header = "Cut weed Plant",
             txt = "",
             params = {
                 event = "mt-weed:server:CortarWeed",
@@ -184,7 +184,7 @@ RegisterNetEvent('mt-weed:client:MenuCorte', function()
             }
         },
         {
-            header = "< Sair",
+            header = "< Close",
             params = {
                 event = "mt-weed:client:pararMenuCorte"
             }
