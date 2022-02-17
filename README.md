@@ -20,5 +20,7 @@ https://discord.gg/AQHbsahZsV
 	["lighter"] 				 	 = {["name"] = "lighter", 			  	  	["label"] = "Esqueiro", 					["weight"] = 5, 		["type"] = "item", 		["image"] = "lighter.png", 				        ["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "On new years eve a nice fire to stand next to"},
 	["drug_cuttingkit"] 			 = {['name'] = 'drug_cuttingkit', 			['label'] = 'Kit de corte', 				['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'drug_cuttingkit.png', 				['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	  		['combinable'] = nil,   ['description'] = 'I mean you could be using this for checking your eyebrows?'},
         ["og_kush_bag"] 				 = {["name"] = "og_kush_bag", 			 		["label"] = "Saco de Og Kush", 				["weight"] = 200, 		["type"] = "item", 		["image"] = "og_kush_bag.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Weed for packing"},
+        ["og_kush_weed"] 				 = {["name"] = "og_kush_weed", 			 	  	["label"] = "Og Kush Weed 1G", 			["weight"] = 200, 		["type"] = "item", 		["image"] = "og_kush_weed.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Weed for packing"},
+
 
 ```
