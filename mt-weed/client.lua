@@ -29,7 +29,12 @@ RegisterNetEvent('mt-weed:client:Apanhar', function()
 		if HasItem then
 			if nearbyObject and IsPedOnFoot(playerPed) then
 				isPickingUp = true
-                QBCore.Functions.Progressbar("Apanhar", "HAVERSTING PLANT..", 5000)
+                QBCore.Functions.Progressbar('name_here', 'HAVERSTING PLANT...', 5000, false, true, {
+		    disableMovement = true,
+		    disableCarMovement = true,
+		    disableMouse = false,
+		    disableCombat = true,
+		}, {}, {}, {}, function()
 				TaskStartScenarioInPlace(playerPed, 'world_human_gardener_plant', 0, false)
 				Wait(6500)
 				ClearPedTasks(playerPed)
@@ -38,6 +43,7 @@ RegisterNetEvent('mt-weed:client:Apanhar', function()
 				table.remove(weedPlants, nearbyID)
 				spawnedPlants = spawnedPlants - 1
 				TriggerServerEvent('mt-weed:server:Apanhar')
+			end)
 			else
 				QBCore.Functions.Notify('Too far way...', 'error', 3500)
 			end
